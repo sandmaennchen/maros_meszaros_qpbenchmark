@@ -17,14 +17,12 @@
 
 """Maros-Meszaros test set."""
 
-import json
 import os.path
-from typing import Dict, Iterator, Union
+from typing import Iterator, Union
 
 import numpy as np
 import scipy.io as spio
 import scipy.sparse as spa
-
 from qpbenchmark.problem import Problem
 from qpbenchmark.test_set import TestSet
 from qpbenchmark.tolerance import Tolerance
@@ -34,7 +32,6 @@ class MarosMeszaros(TestSet):
     """Maros-Meszaros test set, standard problems designed to be difficult."""
 
     data_dir: str
-    optimal_costs: Dict[str, float]
 
     @property
     def description(self) -> str:
@@ -89,12 +86,7 @@ class MarosMeszaros(TestSet):
         super().__init__()
         current_dir = os.path.dirname(os.path.abspath(__file__))
         data_dir = os.path.join(current_dir, "data")
-        cost_path = os.path.join(data_dir, "OPTCOSTS.json")
-        with open(cost_path, "rb") as fh:
-            file_dict = json.load(fh)
-            optimal_costs = {k: float(v) for k, v in file_dict.items()}
         self.data_dir = data_dir
-        self.optimal_costs = optimal_costs
 
     def load_problem_from_mat_file(self, path):
         """Load problem from MAT file.
@@ -206,6 +198,4 @@ class MarosMeszaros(TestSet):
             if fname.endswith(".mat"):
                 mat_path = os.path.join(self.data_dir, fname)
                 problem = self.load_problem_from_mat_file(mat_path)
-                if problem.name in self.optimal_costs:
-                    problem.optimal_cost = self.optimal_costs[problem.name]
                 yield problem
