@@ -6,8 +6,8 @@ All problems have the form:
 
 ```math
 \begin{align*}
-    \textrm{minimize}_x & 0.5 x^T P x + q^T x + r \\
-    \textrm{subject to} & l \leq A x \leq u
+    \textrm{minimize}_x \ & 0.5 x^T P x + q^T x + r \\
+    \textrm{subject to} \ & l \leq A x \leq u
 \end{align*}
 ```
 
