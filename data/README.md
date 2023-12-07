@@ -6,8 +6,9 @@ All problems have the form:
 
 ```math
 \begin{align*}
-\textrm{minimize}_x & 0.5 x^T P x + q^T x + r \\
-\textrm{subject to} &  l \leq A x \leq u
+    \textrm{minimize}_x & 0.5 x^T P x + q^T x + r \\
+    \textrm{subject to} & l \leq A x \leq u
+\end{align*}
 ```
 
 where $x \in \mathbb{R}^n$ is the optimization variable. The objective function is defined by a positive semidefinite matrix $P \in \mathbb{S}^n_+$, a vector $q \in \mathbb{R}^n$ and a scalar $r \in R$. The linear constraints are defined by matrix $A \in \mathbb{R}^{m \times n}$ and vectors $l \in \mathbb{R}^m \cup \{-\infty\}^m$, $u \in \mathbb{R}^m \cup \{+\infty\}^m$.
