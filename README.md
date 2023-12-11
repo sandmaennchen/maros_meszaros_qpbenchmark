@@ -23,9 +23,7 @@ Once you have [installed qpbenchmark](https://github.com/qpsolvers/qpbenchmark#i
 qpbenchmark ./maros_meszaros.py run
 ```
 
-## Results
-
-The outcome from running the test set is a standardized report comparing all available [QP solvers](https://github.com/qpsolvers/qpbenchmark#solvers) against the different [benchmark metrics](https://github.com/qpsolvers/qpbenchmark#metrics). Here are the results obtained on a reference computer:
+The outcome is a standardized report comparing all available solvers against the different [benchmark metrics](https://github.com/qpsolvers/qpbenchmark#metrics). Here are the results obtained on a reference computer:
 
 - [Maros-Meszaros test set results](results/maros_meszaros.md)
 
@@ -33,7 +31,7 @@ You can check out results from a variety of machines, and share the reports prod
 
 ## Subsets
 
-Two subsets are also distributed in this repository:
+Two subsets are distributed in this repository:
 
 | Subset name | Description | Problems | Results |
 |-------------|-------------|----------|---------|
@@ -45,7 +43,7 @@ Two subsets are also distributed in this repository:
 If you use `qpbenchmark` in your scientific works, please cite it *e.g.* as follows:
 
 ```bibtex
-@software{qpbenchmark_2023,
+@software{qpbenchmark2023,
   author = {Caron, Stéphane and Zaki, Akram and Otta, Pavel and Arnström, Daniel and Carpentier, Justin},
   license = {Apache-2.0},
   month = nov,
