@@ -1,6 +1,19 @@
 # Maros-Meszaros test set for QP solvers
 
-This repository contains the [Maros-Meszaros test set](https://www.cuter.rl.ac.uk/Problems/marmes.html) in a format suitable for [qpbenchmark](https://github.com/qpsolvers/qpbenchmark). This standard test set contains 138 quadratic programs that are designed to be difficult.
+This repository contains the [Maros-Meszaros test set](https://www.cuter.rl.ac.uk/Problems/marmes.html) in a format suitable for [qpbenchmark](https://github.com/qpsolvers/qpbenchmark).
+
+Maros-Meszaros is a standard test set containing 138 quadratic programs that are designed to be difficult.
+
+## Installation
+
+The recommended process is to install the benchmark and all solvers in an isolated environment using ``conda``:
+
+```console
+conda env create -f environment.yaml
+conda activate qpbenchmark
+```
+
+It is also possible to install the benchmark [from PyPI](https://github.com/qpsolvers/qpbenchmark#installation).
 
 ## Usage
 
