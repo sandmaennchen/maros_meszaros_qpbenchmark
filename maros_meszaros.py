@@ -23,7 +23,6 @@ from typing import Iterator, Union
 import numpy as np
 import scipy.io as spio
 import scipy.sparse as spa
-
 from qpbenchmark.problem import Problem
 from qpbenchmark.test_set import TestSet
 from qpbenchmark.tolerance import Tolerance
@@ -172,7 +171,6 @@ class MarosMeszaros(TestSet):
         mat_dict = spio.loadmat(path)
         P = mat_dict["P"].astype(float).tocsc()
         q = mat_dict["q"].T.flatten().astype(float)
-        r = mat_dict["r"].T.flatten().astype(float)[0]
         A = mat_dict["A"].astype(float).tocsc()
         l = mat_dict["l"].T.flatten().astype(float)
         u = mat_dict["u"].T.flatten().astype(float)
@@ -196,7 +194,7 @@ class MarosMeszaros(TestSet):
         u_c = u[:-n]
 
         return self.convert_problem_from_double_sided(
-            P, q, C, l_c, u_c, lb, ub, name=name, cost_offset=r
+            P, q, C, l_c, u_c, lb, ub, name=name
         )
 
     @staticmethod
@@ -209,7 +207,6 @@ class MarosMeszaros(TestSet):
         lb: np.ndarray,
         ub: np.ndarray,
         name: str,
-        cost_offset: float = 0.0,
     ):
         """Load problem from double-sided inequality format.
 
@@ -217,7 +214,7 @@ class MarosMeszaros(TestSet):
 
         .. code::
 
-            minimize        0.5 x^T P x + q^T x + cost_offset
+            minimize        0.5 x^T P x + q^T x
             subject to      l <= C x <= u
                             lb <= x <= ub
 
@@ -230,7 +227,6 @@ class MarosMeszaros(TestSet):
             lb: Box lower bound.
             ub: Box upper bound.
             name: Problem name.
-            cost_offset: Cost offset.
         """
         bounds_are_equal = u - l < 1e-10
 
@@ -256,7 +252,6 @@ class MarosMeszaros(TestSet):
             lb,
             ub,
             name=name,
-            cost_offset=cost_offset,
         )
 
     def __iter__(self) -> Iterator[Problem]:
