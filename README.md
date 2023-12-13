@@ -1,8 +1,10 @@
 # Maros-Meszaros test set for QP solvers
 
-This repository contains the [Maros-Meszaros test set](https://www.cuter.rl.ac.uk/Problems/marmes.html) in a format suitable for [qpbenchmark](https://github.com/qpsolvers/qpbenchmark).
+This repository contains the [Maros-Meszaros test set](https://www.cuter.rl.ac.uk/Problems/marmes.html) in a format suitable for [qpbenchmark](https://github.com/qpsolvers/qpbenchmark). Maros-Meszaros is a standard test set containing 138 quadratic programs that are designed to be difficult. Here is the report produced by `qpbenchmark`:
 
-Maros-Meszaros is a standard test set containing 138 quadratic programs that are designed to be difficult.
+<div align=center>
+  📈 <a href="results/maros_meszaros_ref.md"><strong>Maros-Meszaros test set results</strong></a>
+</div>
 
 ## Installation
 
@@ -17,17 +19,13 @@ It is also possible to install the benchmark [from PyPI](https://github.com/qpso
 
 ## Usage
 
-Once you have [installed qpbenchmark](https://github.com/qpsolvers/qpbenchmark#installation), you can run the test set as follows:
+Run the test set as follows:
 
 ```
 qpbenchmark ./maros_meszaros.py run
 ```
 
-The outcome is a standardized report comparing all available solvers against the different [benchmark metrics](https://github.com/qpsolvers/qpbenchmark#metrics). Here is the report generated on a reference computer:
-
-### 📈 [Maros-Meszaros test set results](results/maros_meszaros_ref.md)
-
-You can check out results from various machines and share your own in the [Results forum](https://github.com/qpsolvers/maros_meszaros_qpbenchmark/discussions/categories/results).
+The outcome is a standardized report comparing all available solvers against the different [benchmark metrics](https://github.com/qpsolvers/qpbenchmark#metrics). You can check out and post your own results in the [Results forum](https://github.com/qpsolvers/maros_meszaros_qpbenchmark/discussions/categories/results).
 
 ## Subsets
 
