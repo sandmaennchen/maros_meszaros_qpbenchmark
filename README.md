@@ -25,7 +25,7 @@ qpbenchmark ./maros_meszaros.py run
 
 The outcome is a standardized report comparing all available solvers against the different [benchmark metrics](https://github.com/qpsolvers/qpbenchmark#metrics). Here is the report generated on a reference computer:
 
-### 📈 [Maros-Meszaros test set results](https://github.com/qpsolvers/maros_meszaros_qpbenchmark/blob/main/results/maros_meszaros_dense_ref.md)
+### 📈 [Maros-Meszaros test set results](results/maros_meszaros_ref.md)
 
 You can check out results from various machines and share your own in the [Results forum](https://github.com/qpsolvers/maros_meszaros_qpbenchmark/discussions/categories/results).
 
