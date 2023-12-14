@@ -1,10 +1,13 @@
 # Maros-Meszaros dense positive definite subset
 
-| Benchmark version | 2.1.0rc0 |
-|:------------------|:--------------------|
-| Date              | 2023-12-11 13:38:30.106776+00:00 |
-| CPU               | [12th Gen Intel(R) Core(TM) i7-12800H](#cpu-info) |
-| Run by            | [@stephane-caron](https://github.com/stephane-caron/) |
+| Number of problems | 19       |
+|:-------------------|:--------------------|
+| Benchmark version  | 2.1.0rc1 |
+| Date               | 2023-12-14 14:36:14.829445+00:00              |
+| CPU                | [Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz](#cpu-info) |
+| Run by             | [@stephane-caron](https://github.com/stephane-caron/) |
+
+Benchmark reports are copious as we aim to document comparison factors as much as possible. You can also [jump to results](#results-by-settings) directly.
 
 ## Contents
 

@@ -1,10 +1,13 @@
 # Maros-Meszaros test set
 
-| Benchmark version | 1.2.0 |
-|:------------------|:--------------------|
-| Date              | 2023-11-25 15:03:11.482288+00:00 |
-| CPU               | [Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz](#cpu-info) |
-| Run by            | [@stephane-caron](https://github.com/stephane-caron/) |
+| Number of problems | 138       |
+|:-------------------|:--------------------|
+| Benchmark version  | 2.1.0rc1 |
+| Date               | 2023-12-14 14:36:30.550485+00:00              |
+| CPU                | [Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz](#cpu-info) |
+| Run by             | [@stephane-caron](https://github.com/stephane-caron/) |
+
+Benchmark reports are copious as we aim to document comparison factors as much as possible. You can also [jump to results](#results-by-settings) directly.
 
 ## Contents
 
@@ -25,7 +28,6 @@
         * [Primal residual](#primal-residual)
         * [Dual residual](#dual-residual)
         * [Duality gap](#duality-gap)
-    * [Cost error](#cost-error)
 
 ## Description
 
@@ -77,7 +79,6 @@ There are 4 settings: *default*, *high_accuracy*, *low_accuracy* and *mid_accura
 
 | tolerance   |   default |   high_accuracy |   low_accuracy |   mid_accuracy |
 |:------------|----------:|----------------:|---------------:|---------------:|
-| ``cost``    |      1000 |        1000     |       1000     |       1000     |
 | ``dual``    |         1 |           1e-09 |          0.001 |          1e-06 |
 | ``gap``     |         1 |           1e-09 |          0.001 |          1e-06 |
 | ``primal``  |         1 |           1e-09 |          0.001 |          1e-06 |
@@ -119,6 +120,7 @@ Solvers for each settings are configured as follows:
 The following [issues](https://github.com/qpsolvers/qpbenchmark/issues) have been identified as impacting the fairness of this benchmark. Keep them in mind when drawing conclusions from the results.
 
 - [#60](https://github.com/qpsolvers/qpbenchmark/issues/60): Conversion to SOCP limits performance of ECOS
+- [#88](https://github.com/qpsolvers/qpbenchmark/issues/88): CPU thermal throttling
 
 ## Results by settings
 
@@ -291,22 +293,3 @@ Shifted geometric means of duality gaps (1.0 is the best):
 | scs      |     133.1 |             1.0 |            1.6 |            1.0 |
 
 Rows are solvers and columns are solver settings. The shift is $sh = 10$. A solver that fails to find a solution receives a duality gap equal to the full [gap tolerance](#settings).
-
-### Cost error
-
-The cost error measures the difference between the known optimal objective and the objective at the solution returned by a solver. We use the shifted geometric mean to compare solver cost errors over the whole test set. Intuitively, a solver with a shifted-geometric-mean cost error of Y is Y times less precise on the optimal cost than the best solver over the test set. See [Metrics](https://github.com/qpsolvers/qpbenchmark#metrics) for details.
-
-Shifted geometric means of solver cost errors (1.0 is the best):
-
-|          |   default |   high_accuracy |   low_accuracy |   mid_accuracy |
-|:---------|----------:|----------------:|---------------:|---------------:|
-| clarabel |       1.9 |             1.0 |            1.3 |            1.5 |
-| cvxopt   |      12.3 |             5.0 |            9.3 |            9.7 |
-| gurobi   |      64.9 |            19.8 |           57.4 |           55.5 |
-| highs    |      11.3 |             3.5 |           10.0 |           12.3 |
-| osqp     |      79.0 |            11.7 |           14.6 |           25.6 |
-| piqp     |       1.0 |             1.7 |            1.0 |            1.0 |
-| proxqp   |       4.1 |             2.2 |            3.6 |            4.0 |
-| scs      |      15.7 |             7.6 |            5.3 |            9.6 |
-
-Rows are solvers and columns are solver settings. The shift is $sh = 10$. A solver that fails to find a solution receives a cost error equal to the [cost tolerance](#settings).

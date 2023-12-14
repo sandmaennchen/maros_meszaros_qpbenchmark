@@ -1,10 +1,13 @@
 # Maros-Meszaros dense subset
 
-| Benchmark version | 2.1.0rc0 |
-|:------------------|:--------------------|
-| Date              | 2023-12-11 14:57:02.004215+00:00 |
-| CPU               | [12th Gen Intel(R) Core(TM) i7-12800H](#cpu-info) |
-| Run by            | [@stephane-caron](https://github.com/stephane-caron/) |
+| Number of problems | 62       |
+|:-------------------|:--------------------|
+| Benchmark version  | 2.1.0rc1 |
+| Date               | 2023-12-14 14:36:22.782397+00:00              |
+| CPU                | [Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz](#cpu-info) |
+| Run by             | [@stephane-caron](https://github.com/stephane-caron/) |
+
+Benchmark reports are copious as we aim to document comparison factors as much as possible. You can also [jump to results](#results-by-settings) directly.
 
 ## Contents
 
