@@ -1,9 +1,9 @@
 # Maros-Meszaros dense subset
 
-| Number of problems | 62       |
+| Number of problems | 62 |
 |:-------------------|:--------------------|
-| Benchmark version  | 2.1.0rc1 |
-| Date               | 2023-12-14 14:36:22.782397+00:00              |
+| Benchmark version  | 2.1.0 |
+| Date               | 2023-12-21 14:07:13.058698+00:00 |
 | CPU                | [Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz](#cpu-info) |
 | Run by             | [@stephane-caron](https://github.com/stephane-caron/) |
 
