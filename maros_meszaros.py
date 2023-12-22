@@ -23,12 +23,11 @@ from typing import Iterator, Union
 import numpy as np
 import scipy.io as spio
 import scipy.sparse as spa
-from qpbenchmark.problem import Problem
-from qpbenchmark.test_set import TestSet
-from qpbenchmark.tolerance import Tolerance
+
+import qpbenchmark
 
 
-class MarosMeszaros(TestSet):
+class MarosMeszaros(qpbenchmark.TestSet):
     """Maros-Meszaros test set, standard problems designed to be difficult."""
 
     data_dir: str
@@ -49,33 +48,8 @@ class MarosMeszaros(TestSet):
         return True
 
     def define_tolerances(self) -> None:
-        """Define test set tolerances."""
-        self.tolerances = {
-            "default": Tolerance(
-                primal=1.0,
-                dual=1.0,
-                gap=1.0,
-                runtime=1000.0,
-            ),
-            "high_accuracy": Tolerance(
-                primal=1e-9,
-                dual=1e-9,
-                gap=1e-9,
-                runtime=1000.0,
-            ),
-            "low_accuracy": Tolerance(
-                primal=1e-3,
-                dual=1e-3,
-                gap=1e-3,
-                runtime=1000.0,
-            ),
-            "mid_accuracy": Tolerance(
-                primal=1e-6,
-                dual=1e-6,
-                gap=1e-6,
-                runtime=1000.0,
-            ),
-        }
+        """Override runtime tolerance compared to qpbenchmark defaults."""
+        super().define_tolerances(runtime=1000.0)
 
     def __init__(self):
         """Initialize test set."""
@@ -242,7 +216,7 @@ class MarosMeszaros(TestSet):
             G = G[h_finite]
             h = h[h_finite]
 
-        return Problem(
+        return qpbenchmark.Problem(
             P,
             q,
             G if G.size > 0 else None,
@@ -254,7 +228,7 @@ class MarosMeszaros(TestSet):
             name=name,
         )
 
-    def __iter__(self) -> Iterator[Problem]:
+    def __iter__(self) -> Iterator[qpbenchmark.Problem]:
         """Iterate over test set problems."""
         for fname in os.listdir(self.data_dir):
             if fname.endswith(".mat"):
