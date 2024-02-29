@@ -158,7 +158,7 @@ class MarosMeszaros(qpbenchmark.TestSet):
         u_c = u[:-n]
 
         return self.convert_problem_from_double_sided(
-            P, q, C, l_c, u_c, lb, ub, name=name
+            P, q, C, l_c, u_c, lb, ub, is_feasible=True, name=name
         )
 
     @staticmethod
@@ -170,6 +170,7 @@ class MarosMeszaros(qpbenchmark.TestSet):
         u: np.ndarray,
         lb: np.ndarray,
         ub: np.ndarray,
+        is_feasible: bool,
         name: str,
     ):
         """Load problem from double-sided inequality format.
@@ -215,6 +216,7 @@ class MarosMeszaros(qpbenchmark.TestSet):
             b if b.size > 0 else None,
             lb,
             ub,
+            is_feasible=is_feasible,
             name=name,
         )
 
